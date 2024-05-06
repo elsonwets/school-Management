@@ -1,4 +1,4 @@
-mon-application/
+```mon-application/
 |-- laravel-backend/
 |   |-- app/
 |   |-- bootstrap/
@@ -12,3 +12,4 @@ mon-application/
 |   |-- src/
 |   |-- public/
 |   |-- ...
+```
