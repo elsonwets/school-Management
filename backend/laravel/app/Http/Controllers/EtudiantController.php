@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\etudiant;
 use Illuminate\Http\Request;
+use App\Models\Etudiant;
 
 class EtudiantController extends Controller
 {

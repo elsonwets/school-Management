@@ -16,6 +16,10 @@ class etudiant extends Model
         'email',
         'image',
         'adresse',
-        'sexe'
+        'sexe',
+        'telephone',
+        'lieu_de_naissance',
+        'nationalite',
+        
     ];
 }
