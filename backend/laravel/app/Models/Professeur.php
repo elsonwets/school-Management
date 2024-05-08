@@ -5,33 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etudiant extends Model
+class Professeur extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'utilisateur_id',
         'nom',
         'prenom',
-        'date_naissance',
         'adresse',
         'email',
         'numero_tel',
-        'utilisateur_id',
     ];
 
     /**
-     * Get the user associated with the student.
+     * Récupère l'utilisateur associé au professeur.
      */
     public function utilisateur()
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get the classes in which the student is enrolled.
-     */
-    public function classes()
-    {
-        return $this->belongsToMany(Classe::class, 'inscriptions', 'etudiant_id', 'classe_id')
-                    ->withTimestamps();
     }
 }

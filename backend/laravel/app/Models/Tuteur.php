@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Etudiant extends Model
+class Tuteur extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'utilisateur_id',
         'nom',
         'prenom',
-        'date_naissance',
         'adresse',
         'email',
         'numero_tel',
-        'utilisateur_id',
     ];
 
     /**
-     * Get the user associated with the student.
+     * Récupère l'utilisateur associé au tuteur.
      */
     public function utilisateur()
     {
@@ -27,11 +26,10 @@ class Etudiant extends Model
     }
 
     /**
-     * Get the classes in which the student is enrolled.
+     * Récupère les étudiants sous la tutelle du tuteur.
      */
-    public function classes()
+    public function etudiants()
     {
-        return $this->belongsToMany(Classe::class, 'inscriptions', 'etudiant_id', 'classe_id')
-                    ->withTimestamps();
+        return $this->hasMany(Etudiant::class);
     }
 }

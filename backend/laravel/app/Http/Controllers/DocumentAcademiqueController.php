@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Etudiant;
+use App\Models\Document_academique;
 use Illuminate\Http\Request;
 
-class EtudiantController extends Controller
+class DocumentAcademiqueController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class EtudiantController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Etudiant $etudiant)
+    public function show(Document_academique $document_academique)
     {
         //
     }
@@ -42,7 +42,7 @@ class EtudiantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Etudiant $etudiant)
+    public function edit(Document_academique $document_academique)
     {
         //
     }
@@ -50,7 +50,7 @@ class EtudiantController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Etudiant $etudiant)
+    public function update(Request $request, Document_academique $document_academique)
     {
         //
     }
@@ -58,7 +58,7 @@ class EtudiantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Etudiant $etudiant)
+    public function destroy(Document_academique $document_academique)
     {
         //
     }

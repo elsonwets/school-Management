@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('etudiants', function (Blueprint $table) {
-            $table->string('lieu_de_naissance');
-            $table->string('sexe');
-            $table->string('nationalite');
-            $table->integer('telephone');
+        Schema::create('annee_scolaires', function (Blueprint $table) {
+            $table->id();
+            $table->string('annee');
+            $table->date('date_debut');
+            $table->date('date_fin');
+            $table->timestamps();
         });
     }
 
@@ -24,8 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('etudiants', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('annee_scolaires');
     }
 };
