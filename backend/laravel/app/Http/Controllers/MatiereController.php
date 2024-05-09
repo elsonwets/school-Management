@@ -12,15 +12,7 @@ class MatiereController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Matiere::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class MatiereController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $matiere = Matiere::create($request->all());
+
+        return response()->json($matiere, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class MatiereController extends Controller
      */
     public function show(Matiere $matiere)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Matiere $matiere)
-    {
-        //
+        //return Etudiant::find($id);
+        return $matiere;
     }
 
     /**
@@ -52,14 +39,18 @@ class MatiereController extends Controller
      */
     public function update(Request $request, Matiere $matiere)
     {
-        //
+        $matiere->update($request->all());
+
+        return response()->json($matiere, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Matiere $matiere)
+    public function delete(Request $request, Matiere $matiere)
     {
-        //
+        $matiere->delete();
+
+        return response()->json(null, 204);
     }
 }

@@ -7,20 +7,12 @@ use Illuminate\Http\Request;
 
 class PaiementController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Paiement::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class PaiementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paiement = Paiement::create($request->all());
+
+        return response()->json($paiement, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class PaiementController extends Controller
      */
     public function show(Paiement $paiement)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Paiement $paiement)
-    {
-        //
+        //return Etudiant::find($id);
+        return $paiement;
     }
 
     /**
@@ -52,14 +39,18 @@ class PaiementController extends Controller
      */
     public function update(Request $request, Paiement $paiement)
     {
-        //
+        $paiement->update($request->all());
+
+        return response()->json($paiement, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Paiement $paiement)
+    public function delete(Request $request, Paiement $paiement)
     {
-        //
+        $paiement->delete();
+
+        return response()->json(null, 204);
     }
 }

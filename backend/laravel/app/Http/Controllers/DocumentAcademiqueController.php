@@ -12,15 +12,7 @@ class DocumentAcademiqueController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Document_academique::all();    
     }
 
     /**
@@ -28,38 +20,37 @@ class DocumentAcademiqueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $document = Document_academique::create($request->all());
+
+        return response()->json($document, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Document_academique $document_academique)
+    public function show(Document_academique $document)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Document_academique $document_academique)
-    {
-        //
+        //return Etudiant::find($id);
+        return $document;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Document_academique $document_academique)
+    public function update(Request $request, Document_academique $document)
     {
-        //
+        $document->update($request->all());
+
+        return response()->json($document, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Document_academique $document_academique)
+    public function delete(Request $request, Document_academique $document)
     {
-        //
+        $document->delete();
+
+        return response()->json(null, 204);
     }
 }

@@ -12,15 +12,7 @@ class InscriptionController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Inscription::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inscription = Inscription::create($request->all());
+
+        return response()->json($inscription, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class InscriptionController extends Controller
      */
     public function show(Inscription $inscription)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Inscription $inscription)
-    {
-        //
+        //return Etudiant::find($id);
+        return $inscription;
     }
 
     /**
@@ -52,14 +39,18 @@ class InscriptionController extends Controller
      */
     public function update(Request $request, Inscription $inscription)
     {
-        //
+        $inscription->update($request->all());
+
+        return response()->json($inscription, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Inscription $inscription)
+    public function delete(Request $request, Inscription $inscription)
     {
-        //
+        $inscription->delete();
+
+        return response()->json(null, 204);
     }
 }

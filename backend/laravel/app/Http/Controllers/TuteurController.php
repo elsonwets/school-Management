@@ -12,15 +12,7 @@ class TuteurController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Tuteur::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class TuteurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tuteur = Tuteur::create($request->all());
+
+        return response()->json($tuteur, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class TuteurController extends Controller
      */
     public function show(Tuteur $tuteur)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Tuteur $tuteur)
-    {
-        //
+        //return Etudiant::find($id);
+        return $tuteur;
     }
 
     /**
@@ -52,14 +39,18 @@ class TuteurController extends Controller
      */
     public function update(Request $request, Tuteur $tuteur)
     {
-        //
+        $tuteur->update($request->all());
+
+        return response()->json($tuteur, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tuteur $tuteur)
+    public function delete(Request $request, Tuteur $tuteur)
     {
-        //
+        $tuteur->delete();
+
+        return response()->json(null, 204);
     }
 }

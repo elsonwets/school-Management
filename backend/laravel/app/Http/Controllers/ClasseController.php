@@ -12,15 +12,7 @@ class ClasseController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Classe::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class ClasseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $classe = Classe::create($request->all());
+
+        return response()->json($classe, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class ClasseController extends Controller
      */
     public function show(Classe $classe)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Classe $classe)
-    {
-        //
+        //return Etudiant::find($id);
+        return $classe;
     }
 
     /**
@@ -52,14 +39,18 @@ class ClasseController extends Controller
      */
     public function update(Request $request, Classe $classe)
     {
-        //
+        $classe->update($request->all());
+
+        return response()->json($classe, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Classe $classe)
+    public function delete(Request $request, Classe $classe)
     {
-        //
+        $classe->delete();
+
+        return response()->json(null, 204);
     }
 }

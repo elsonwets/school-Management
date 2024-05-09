@@ -12,15 +12,7 @@ class AnneeScolaireController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Annee_scolaire::all();    
     }
 
     /**
@@ -28,38 +20,37 @@ class AnneeScolaireController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $annee = Annee_scolaire::create($request->all());
+
+        return response()->json($annee, 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Annee_scolaire $annee_scolaire)
+    public function show(Annee_scolaire $annee)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Annee_scolaire $annee_scolaire)
-    {
-        //
+        //return Etudiant::find($id);
+        return $annee;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Annee_scolaire $annee_scolaire)
+    public function update(Request $request, Annee_scolaire $annee)
     {
-        //
+        $annee->update($request->all());
+
+        return response()->json($annee, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Annee_scolaire $annee_scolaire)
+    public function delete(Request $request, Annee_scolaire $annee)
     {
-        //
+        $annee->delete();
+
+        return response()->json(null, 204);
     }
 }

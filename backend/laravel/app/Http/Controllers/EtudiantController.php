@@ -12,15 +12,7 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Etudiant::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class EtudiantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $etudiant = Etudiant::create($request->all());
+
+        return response()->json($etudiant, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Etudiant $etudiant)
-    {
-        //
+        //return Etudiant::find($id);
+        return $etudiant;
     }
 
     /**
@@ -52,14 +39,18 @@ class EtudiantController extends Controller
      */
     public function update(Request $request, Etudiant $etudiant)
     {
-        //
+        $etudiant->update($request->all());
+
+        return response()->json($etudiant, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Etudiant $etudiant)
+    public function delete(Request $request, Etudiant $etudiant)
     {
-        //
+        $etudiant->delete();
+
+        return response()->json(null, 204);
     }
 }

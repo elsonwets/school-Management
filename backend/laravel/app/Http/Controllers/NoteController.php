@@ -12,15 +12,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return Note::all();    
     }
 
     /**
@@ -28,7 +20,9 @@ class NoteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $note = Note::create($request->all());
+
+        return response()->json($note, 201);
     }
 
     /**
@@ -36,15 +30,8 @@ class NoteController extends Controller
      */
     public function show(Note $note)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Note $note)
-    {
-        //
+        //return Etudiant::find($id);
+        return $note;
     }
 
     /**
@@ -52,14 +39,18 @@ class NoteController extends Controller
      */
     public function update(Request $request, Note $note)
     {
-        //
+        $note->update($request->all());
+
+        return response()->json($note, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Note $note)
+    public function delete(Request $request, Note $note)
     {
-        //
+        $note->delete();
+
+        return response()->json(null, 204);
     }
 }
