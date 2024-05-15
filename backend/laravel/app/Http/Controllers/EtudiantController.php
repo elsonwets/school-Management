@@ -12,7 +12,8 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-        return Etudiant::all();    
+        $etudiant= Etudiant::all();
+        return response()->json(['etudiants' => $etudiant]);  
     }
 
     /**
@@ -21,7 +22,6 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
         $etudiant = Etudiant::create($request->all());
-
         return response()->json($etudiant, 201);
     }
 

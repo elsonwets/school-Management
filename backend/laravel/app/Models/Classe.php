@@ -15,7 +15,7 @@ class Classe extends Model
     ];
 
     /**
-     * Get the school year associated with the class.
+     * Obtenir l'année scolaire associée à la classe.
      */
     public function anneeScolaire()
     {
@@ -23,7 +23,7 @@ class Classe extends Model
     }
 
     /**
-     * Get the students enrolled in the class.
+     * Obtenir les étudiants inscrits dans la classe.
      */
     public function etudiants()
     {
@@ -32,7 +32,7 @@ class Classe extends Model
     }
 
     /**
-     * Get the subjects taught in the class.
+     * Obtenir les matières enseignées dans la classe.
      */
     public function matieres()
     {
